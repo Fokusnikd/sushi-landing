@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'motion/react'
 import type { MotionValue } from 'motion/react'
 import type { ReactNode } from 'react'
+import { content } from '../content'
 import { motionTokens, pressable } from '../lib/motion'
 import { Icon } from './Icon'
 import type { IconName } from './Icon'
@@ -8,13 +9,11 @@ import { SushiArt } from './Sushi'
 import type { SushiKind } from './Sushi'
 import { Container, buttonGhost, buttonPrimary } from './ui'
 
-const facts: { icon: IconName; title: string; text: string }[] = [
-  { icon: 'clock', title: '45 минут', text: 'или ролл в подарок' },
-  { icon: 'bag', title: 'от 1 500 ₽', text: 'доставка бесплатно' },
-  { icon: 'star', title: '4,9', text: 'средняя оценка' },
-]
+// Icons stay in code; the three facts' texts come from content
+const factIcons: IconName[] = ['clock', 'bag', 'star']
 
 export function Hero() {
+  const { hero } = content
   return (
     <section id="top" className="relative overflow-hidden pt-28 pb-10 sm:pt-32 lg:pt-36 lg:pb-16">
       <div aria-hidden="true" className="pointer-events-none absolute -top-32 -right-40 size-[36rem] rounded-full bg-ginger/40 blur-3xl" />
@@ -27,7 +26,7 @@ export function Hero() {
             transition={{ duration: motionTokens.duration.normal, ease: motionTokens.easing.smooth }}
           >
             <span className="size-2 rounded-full bg-wasabi" />
-            Сегодня готовим до 23:00
+            {hero.badge}
           </motion.p>
 
           <motion.h1
@@ -36,9 +35,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: motionTokens.duration.slow, ease: motionTokens.easing.smooth }}
           >
-            Суши, которые{' '}
+            {hero.titleStart}{' '}
             <span className="relative inline-block text-salmon-deep">
-              Андрюша
+              {hero.titleAccent}
               <svg
                 aria-hidden="true"
                 viewBox="0 0 160 14"
@@ -57,7 +56,7 @@ export function Hero() {
                 />
               </svg>
             </span>{' '}
-            одобрил
+            {hero.titleEnd}
           </motion.h1>
 
           <motion.p
@@ -66,24 +65,23 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: motionTokens.duration.slow, delay: 0.3 }}
           >
-            Готовим из охлаждённого лосося и японского риса прямо перед отправкой. Привезём за 45 минут — или следующий ролл
-            за наш счёт.
+            {hero.text}
           </motion.p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <motion.a href="#menu" className={buttonPrimary} {...pressable}>
-              Выбрать роллы
+              {hero.primaryButton}
               <Icon name="arrowRight" className="size-5" />
             </motion.a>
             <motion.a href="#delivery" className={buttonGhost} {...pressable}>
-              Доставка и оплата
+              {hero.secondaryButton}
             </motion.a>
           </div>
 
           <ul className="mt-10 grid max-w-lg grid-cols-3 gap-3">
-            {facts.map((fact) => (
-              <li key={fact.title} className="rounded-2xl bg-white p-3 shadow-sm sm:p-4">
-                <Icon name={fact.icon} className="size-5 text-salmon-deep" />
+            {hero.facts.map((fact, index) => (
+              <li key={index} className="rounded-2xl bg-white p-3 shadow-sm sm:p-4">
+                <Icon name={factIcons[index % factIcons.length]} className="size-5 text-salmon-deep" />
                 <p className="mt-2 font-display text-base font-extrabold whitespace-nowrap sm:text-lg">{fact.title}</p>
                 <p className="text-sm text-nori-soft">{fact.text}</p>
               </li>
@@ -177,11 +175,11 @@ function HeroVisual() {
 
       <FloatingBadge className="top-[8%] left-0" delay={0.35}>
         <Icon name="clock" className="size-4 text-salmon-deep" />
-        Привезём за 45 мин
+        {content.hero.badgeTop}
       </FloatingBadge>
       <FloatingBadge className="right-0 bottom-[10%]" delay={0.5}>
         <Icon name="star" className="size-4 text-sesame" />
-        Режем после заказа
+        {content.hero.badgeBottom}
       </FloatingBadge>
     </div>
   )

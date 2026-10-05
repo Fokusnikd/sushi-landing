@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useRef, useState } from 'react'
-import { categories, menu } from '../data'
-import type { CategoryId, MenuItem } from '../data'
+import { content } from '../content'
+import type { Dish } from '../content'
 import type { Cart } from '../lib/cart'
 import { motionTokens, springs } from '../lib/motion'
 import { Icon } from './Icon'
@@ -17,8 +17,9 @@ type Props = {
 }
 
 export function Menu({ cart, onAdd, onQty }: Props) {
-  const [category, setCategory] = useState<CategoryId>('rolls')
-  const items = menu.filter((item) => item.category === category)
+  const { eyebrow, title, intro, categories } = content.menuSection
+  const [category, setCategory] = useState(categories[0]?.id ?? '')
+  const items = content.dishes.filter((item) => item.category === category)
 
   return (
     <section id="menu" className="py-16 lg:py-24" aria-labelledby="menu-title">
@@ -26,9 +27,9 @@ export function Menu({ cart, onAdd, onQty }: Props) {
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
             id="menu-title"
-            eyebrow="Меню"
-            title="Что сегодня заказывает Андрюша"
-            intro="Режем роллы после заказа, а не утром. Поэтому рис мягкий, а нори хрустит."
+            eyebrow={eyebrow}
+            title={title}
+            intro={intro}
           />
           <div
             className="flex max-w-full shrink-0 gap-1 self-start overflow-x-auto rounded-full bg-white p-1.5 shadow-sm [scrollbar-width:none] lg:self-end [&::-webkit-scrollbar]:hidden"
@@ -78,7 +79,7 @@ export function Menu({ cart, onAdd, onQty }: Props) {
   )
 }
 
-function MenuCard({ item, qty, onAdd, onQty }: { item: MenuItem; qty: number } & Omit<Props, 'cart'>) {
+function MenuCard({ item, qty, onAdd, onQty }: { item: Dish; qty: number } & Omit<Props, 'cart'>) {
   const artRef = useRef<HTMLDivElement>(null)
 
   return (
@@ -88,7 +89,7 @@ function MenuCard({ item, qty, onAdd, onQty }: { item: MenuItem; qty: number } &
           <span className="absolute top-3 left-3 rounded-full bg-nori px-2.5 py-1 text-xs font-bold text-rice">{item.tag}</span>
         )}
         <motion.div ref={artRef} whileHover={{ rotate: 8, scale: 1.06 }} transition={springs.bouncy}>
-          <SushiArt kind={item.kind} className="size-56" />
+          <SushiArt src={item.image} className="size-56" />
         </motion.div>
       </div>
       <div className="flex flex-1 flex-col px-1 pt-4">

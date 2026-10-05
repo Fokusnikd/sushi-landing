@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useState } from 'react'
-import { navItems, shop } from '../data'
+import { content, telHref } from '../content'
+import { navItems } from '../data'
 import { motionTokens, springs } from '../lib/motion'
 import { Icon } from './Icon'
 import { Container, Logo, buttonPrimary } from './ui'
@@ -51,9 +52,9 @@ export function Header({ cartCount, onCartOpen }: { cartCount: number; onCartOpe
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={shop.phoneHref} className="hidden items-center gap-2 font-bold md:flex">
+          <a href={telHref(content.shop.phone)} className="hidden items-center gap-2 font-bold md:flex">
             <Icon name="phone" className="size-5 text-salmon-deep" />
-            {shop.phone}
+            {content.shop.phone}
           </a>
           <motion.button
             id="cart-button"
@@ -120,8 +121,8 @@ export function Header({ cartCount, onCartOpen }: { cartCount: number; onCartOpe
                 <a href="#menu" onClick={close} className={buttonPrimary}>
                   Выбрать роллы
                 </a>
-                <a href={shop.phoneHref} className="py-2 text-center font-bold">
-                  {shop.phone}
+                <a href={telHref(content.shop.phone)} className="py-2 text-center font-bold">
+                  {content.shop.phone}
                 </a>
               </div>
             </Container>

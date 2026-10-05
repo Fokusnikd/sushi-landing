@@ -1,0 +1,389 @@
+{
+  "title": "Суши для Андрюши",
+  "sections": [
+    {
+      "key": "shop",
+      "label": "Контакты",
+      "type": "group",
+      "hint": "Телефон, часы работы и зона доставки — в шапке и внизу сайта.",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Название ресторана",
+          "type": "text",
+          "required": true,
+          "maxLength": 40
+        },
+        {
+          "key": "phone",
+          "label": "Телефон",
+          "type": "text",
+          "required": true,
+          "hint": "Как показывать на сайте, например +7 (495) 123-45-67. Ссылка для звонка соберётся сама."
+        },
+        {
+          "key": "hours",
+          "label": "Часы работы",
+          "type": "text"
+        },
+        {
+          "key": "zone",
+          "label": "Зона доставки",
+          "type": "text"
+        },
+        {
+          "key": "contactsTitle",
+          "label": "Заголовок блока «Контакты»",
+          "type": "text",
+          "maxLength": 80
+        }
+      ]
+    },
+    {
+      "key": "hero",
+      "label": "Первый экран",
+      "type": "group",
+      "hint": "То, что посетитель видит сразу при открытии сайта.",
+      "fields": [
+        {
+          "key": "badge",
+          "label": "Плашка над заголовком",
+          "type": "text",
+          "maxLength": 40
+        },
+        {
+          "key": "titleStart",
+          "label": "Заголовок: начало",
+          "type": "text",
+          "maxLength": 30
+        },
+        {
+          "key": "titleAccent",
+          "label": "Заголовок: выделенное слово",
+          "type": "text",
+          "maxLength": 20
+        },
+        {
+          "key": "titleEnd",
+          "label": "Заголовок: конец",
+          "type": "text",
+          "maxLength": 30
+        },
+        {
+          "key": "text",
+          "label": "Текст под заголовком",
+          "type": "textarea",
+          "maxLength": 220
+        },
+        {
+          "key": "primaryButton",
+          "label": "Главная кнопка",
+          "type": "text",
+          "maxLength": 24
+        },
+        {
+          "key": "secondaryButton",
+          "label": "Вторая кнопка",
+          "type": "text",
+          "maxLength": 24
+        },
+        {
+          "key": "facts",
+          "label": "Три факта под кнопками",
+          "type": "list",
+          "itemName": "факт",
+          "min": 3,
+          "max": 3,
+          "fields": [
+            {
+              "key": "title",
+              "label": "Крупно",
+              "type": "text",
+              "maxLength": 12
+            },
+            {
+              "key": "text",
+              "label": "Мелко",
+              "type": "text",
+              "maxLength": 24
+            }
+          ]
+        },
+        {
+          "key": "badgeTop",
+          "label": "Наклейка у фото сверху",
+          "type": "text",
+          "maxLength": 24
+        },
+        {
+          "key": "badgeBottom",
+          "label": "Наклейка у фото снизу",
+          "type": "text",
+          "maxLength": 24
+        }
+      ]
+    },
+    {
+      "key": "menuSection",
+      "label": "Меню: заголовок и категории",
+      "type": "group",
+      "fields": [
+        {
+          "key": "eyebrow",
+          "label": "Надпись над заголовком",
+          "type": "text",
+          "maxLength": 30
+        },
+        {
+          "key": "title",
+          "label": "Заголовок",
+          "type": "text",
+          "required": true,
+          "maxLength": 80
+        },
+        {
+          "key": "intro",
+          "label": "Текст под заголовком",
+          "type": "textarea",
+          "maxLength": 160
+        },
+        {
+          "key": "categories",
+          "label": "Категории",
+          "type": "list",
+          "itemName": "категорию",
+          "idKey": "id",
+          "min": 1,
+          "hint": "Вкладки над меню. Блюда привязываются к категории в разделе «Блюда».",
+          "fields": [
+            {
+              "key": "label",
+              "label": "Название",
+              "type": "text",
+              "required": true,
+              "maxLength": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dishes",
+      "label": "Блюда",
+      "type": "list",
+      "itemName": "блюдо",
+      "idKey": "id",
+      "itemTitle": "name",
+      "hint": "Порядок здесь — порядок на сайте. Цену меняйте здесь же.",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Название",
+          "type": "text",
+          "required": true,
+          "maxLength": 40
+        },
+        {
+          "key": "category",
+          "label": "Категория",
+          "type": "select",
+          "optionsFrom": {
+            "path": "menuSection.categories",
+            "value": "id",
+            "label": "label"
+          }
+        },
+        {
+          "key": "image",
+          "label": "Фото",
+          "type": "image",
+          "hint": "Квадратное фото, блюдо по центру. Большие фото уменьшатся автоматически."
+        },
+        {
+          "key": "description",
+          "label": "Состав",
+          "type": "text",
+          "maxLength": 70
+        },
+        {
+          "key": "meta",
+          "label": "Вес и количество",
+          "type": "text",
+          "placeholder": "8 шт · 260 г",
+          "maxLength": 30
+        },
+        {
+          "key": "price",
+          "label": "Цена",
+          "type": "number",
+          "min": 0,
+          "step": 10,
+          "suffix": "₽"
+        },
+        {
+          "key": "tag",
+          "label": "Метка на фото",
+          "type": "text",
+          "hint": "Например «Хит» или «Острый». Пусто — без метки.",
+          "maxLength": 14
+        }
+      ]
+    },
+    {
+      "key": "delivery",
+      "label": "Доставка",
+      "type": "group",
+      "fields": [
+        {
+          "key": "eyebrow",
+          "label": "Надпись над заголовком",
+          "type": "text",
+          "maxLength": 30
+        },
+        {
+          "key": "title",
+          "label": "Заголовок",
+          "type": "text",
+          "required": true,
+          "maxLength": 80
+        },
+        {
+          "key": "intro",
+          "label": "Текст под заголовком",
+          "type": "textarea",
+          "maxLength": 200
+        },
+        {
+          "key": "minutes",
+          "label": "Минут на доставку (цифра в круге)",
+          "type": "number",
+          "min": 1,
+          "max": 180
+        },
+        {
+          "key": "freeFrom",
+          "label": "Бесплатная доставка от",
+          "type": "number",
+          "min": 0,
+          "step": 100,
+          "suffix": "₽",
+          "hint": "Корзина считает доставку по этим двум числам."
+        },
+        {
+          "key": "fee",
+          "label": "Стоимость доставки",
+          "type": "number",
+          "min": 0,
+          "step": 10,
+          "suffix": "₽"
+        },
+        {
+          "key": "facts",
+          "label": "Условия",
+          "type": "list",
+          "itemName": "условие",
+          "max": 6,
+          "fields": [
+            {
+              "key": "title",
+              "label": "Заголовок",
+              "type": "text",
+              "required": true,
+              "maxLength": 40
+            },
+            {
+              "key": "text",
+              "label": "Текст",
+              "type": "textarea",
+              "maxLength": 120
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "reviewsSection",
+      "label": "Отзывы",
+      "type": "group",
+      "fields": [
+        {
+          "key": "eyebrow",
+          "label": "Надпись над заголовком",
+          "type": "text",
+          "maxLength": 30
+        },
+        {
+          "key": "title",
+          "label": "Заголовок",
+          "type": "text",
+          "required": true,
+          "maxLength": 80
+        },
+        {
+          "key": "items",
+          "label": "Отзывы",
+          "type": "list",
+          "itemName": "отзыв",
+          "fields": [
+            {
+              "key": "name",
+              "label": "Имя",
+              "type": "text",
+              "required": true,
+              "maxLength": 30
+            },
+            {
+              "key": "text",
+              "label": "Текст отзыва",
+              "type": "textarea",
+              "required": true,
+              "maxLength": 260
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "promo",
+      "label": "Акция",
+      "type": "group",
+      "fields": [
+        {
+          "key": "show",
+          "label": "Показывать блок акции",
+          "type": "toggle"
+        },
+        {
+          "key": "eyebrow",
+          "label": "Надпись над заголовком",
+          "type": "text",
+          "maxLength": 30
+        },
+        {
+          "key": "title",
+          "label": "Заголовок",
+          "type": "text",
+          "maxLength": 50
+        },
+        {
+          "key": "text",
+          "label": "Текст",
+          "type": "textarea",
+          "maxLength": 140
+        },
+        {
+          "key": "button",
+          "label": "Кнопка",
+          "type": "text",
+          "maxLength": 24
+        },
+        {
+          "key": "badge",
+          "label": "Крупная наклейка",
+          "type": "text",
+          "maxLength": 6
+        }
+      ]
+    }
+  ]
+}

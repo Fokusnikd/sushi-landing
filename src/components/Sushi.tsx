@@ -1,3 +1,5 @@
+import { asset } from '../content'
+
 export type SushiKind =
   | 'philadelphia'
   | 'california'
@@ -13,11 +15,11 @@ export type SushiKind =
   | 'set-small'
   | 'set-big'
 
-// Food photographs, 720px WebP on a warm cream background.
-export function SushiArt({ kind, className = 'size-24' }: { kind: SushiKind; className?: string }) {
+// Food photographs, 720px WebP on a warm cream background. src (from content) wins over the built-in kind.
+export function SushiArt({ kind, src, className = 'size-24' }: { kind?: SushiKind; src?: string; className?: string }) {
   return (
     <img
-      src={`${import.meta.env.BASE_URL}sushi/${kind}.webp`}
+      src={src ? asset(src) : `${import.meta.env.BASE_URL}sushi/${kind ?? 'maki-salmon'}.webp`}
       alt=""
       width={720}
       height={720}

@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-rice: #fbf6ee;
+  --color-rice-deep: #f3ece1;
+  --color-nori: #1f2b24;
+  --color-nori-soft: #55625a;
+  --color-salmon: #ff8a5c;
+  --color-salmon-deep: #c2462b;
+  --color-salmon-dark: #a53a22;
+  --color-wasabi: #9cc26b;
+  --color-matcha-deep: #4a6636;
+  --color-ginger: #f6b8b0;
+  --color-sesame: #e9c46a;
+
+  --font-display: 'Rubik', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+
+  --animate-conveyor: conveyor 40s linear infinite;
+
+  @keyframes conveyor {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-rice font-sans text-nori antialiased;
+  }
+
+  ::selection {
+    @apply bg-salmon text-nori;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}

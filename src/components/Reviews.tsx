@@ -1,21 +1,25 @@
 import { motion } from 'motion/react'
-import { reviews } from '../data'
+import { content } from '../content'
 import { motionTokens, springs } from '../lib/motion'
 import { Icon } from './Icon'
 import { Container, Reveal, SectionHeading } from './ui'
 
+// Cards lean a little, each its own way
+const tilt = [-2, -1, 1.5]
+
 export function Reviews() {
+  const { eyebrow, title, items } = content.reviewsSection
   return (
     <section id="reviews" className="py-16 lg:py-24" aria-labelledby="reviews-title">
       <Container>
-        <SectionHeading id="reviews-title" eyebrow="Отзывы" title="Андрюша и другие довольные гости" />
+        <SectionHeading id="reviews-title" eyebrow={eyebrow} title={title} />
         <ul className="mt-12 grid gap-6 md:grid-cols-3">
-          {reviews.map((review, index) => (
-            <li key={review.name}>
+          {items.map((review, index) => (
+            <li key={index}>
               <Reveal delay={index * motionTokens.stagger * 1.5}>
                 <motion.figure
                   className="h-full rounded-3xl bg-white p-6 shadow-[0_18px_40px_-24px_rgba(31,43,36,0.35)]"
-                  style={{ rotate: review.rotate }}
+                  style={{ rotate: tilt[index % tilt.length] }}
                   whileHover={{ rotate: 0, y: -motionTokens.distance.sm }}
                   transition={springs.gentle}
                 >

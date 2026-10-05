@@ -1,0 +1,241 @@
+{
+  "shop": {
+    "name": "Суши для Андрюши",
+    "phone": "+7 (495) 000-00-00",
+    "hours": "Ежедневно с 11:00 до 23:00",
+    "zone": "Доставляем по Москве в пределах МКАД",
+    "contactsTitle": "Проголодались? Звоните или заказывайте на сайте"
+  },
+  "hero": {
+    "badge": "Сегодня готовим до 23:00",
+    "titleStart": "Суши, которые",
+    "titleAccent": "Андрюша",
+    "titleEnd": "одобрил",
+    "text": "Готовим из охлаждённого лосося и японского риса прямо перед отправкой. Привезём за 45 минут — или следующий ролл за наш счёт.",
+    "primaryButton": "Выбрать роллы",
+    "secondaryButton": "Доставка и оплата",
+    "facts": [
+      {
+        "title": "45 минут",
+        "text": "или ролл в подарок"
+      },
+      {
+        "title": "от 1 500 ₽",
+        "text": "доставка бесплатно"
+      },
+      {
+        "title": "4,9",
+        "text": "средняя оценка"
+      }
+    ],
+    "badgeTop": "Привезём за 45 мин",
+    "badgeBottom": "Режем после заказа"
+  },
+  "menuSection": {
+    "eyebrow": "Меню",
+    "title": "Что сегодня заказывает Андрюша",
+    "intro": "Режем роллы после заказа, а не утром. Поэтому рис мягкий, а нори хрустит.",
+    "categories": [
+      {
+        "id": "rolls",
+        "label": "Роллы"
+      },
+      {
+        "id": "baked",
+        "label": "Запечённые"
+      },
+      {
+        "id": "sushi",
+        "label": "Суши"
+      },
+      {
+        "id": "sets",
+        "label": "Сеты"
+      }
+    ]
+  },
+  "dishes": [
+    {
+      "id": "philadelphia",
+      "category": "rolls",
+      "image": "sushi/philadelphia.webp",
+      "name": "Филадельфия",
+      "description": "Лосось, сливочный сыр, огурец",
+      "meta": "8 шт · 260 г",
+      "price": 590,
+      "tag": "Хит"
+    },
+    {
+      "id": "andryusha",
+      "category": "rolls",
+      "image": "sushi/andryusha.webp",
+      "name": "Ролл «Андрюша»",
+      "description": "Угорь, лосось, сливочный сыр, соус унаги",
+      "meta": "8 шт · 280 г",
+      "price": 690,
+      "tag": "Фирменный"
+    },
+    {
+      "id": "california",
+      "category": "rolls",
+      "image": "sushi/california.webp",
+      "name": "Калифорния",
+      "description": "Краб, авокадо, икра тобико",
+      "meta": "8 шт · 240 г",
+      "price": 520,
+      "tag": ""
+    },
+    {
+      "id": "maki-salmon",
+      "category": "rolls",
+      "image": "sushi/maki-salmon.webp",
+      "name": "Маки с лососем",
+      "description": "Лосось, рис, нори",
+      "meta": "6 шт · 140 г",
+      "price": 290,
+      "tag": ""
+    },
+    {
+      "id": "maki-cucumber",
+      "category": "rolls",
+      "image": "sushi/maki-cucumber.webp",
+      "name": "Маки с огурцом",
+      "description": "Огурец, кунжут, рис, нори",
+      "meta": "6 шт · 120 г",
+      "price": 190,
+      "tag": "Без рыбы"
+    },
+    {
+      "id": "baked-salmon",
+      "category": "baked",
+      "image": "sushi/baked-salmon.webp",
+      "name": "Запечённый с лососем",
+      "description": "Лосось, сыр, сырный соус",
+      "meta": "8 шт · 270 г",
+      "price": 520,
+      "tag": "Хит"
+    },
+    {
+      "id": "baked-crab",
+      "category": "baked",
+      "image": "sushi/baked-crab.webp",
+      "name": "Запечённый с крабом",
+      "description": "Краб, огурец, спайси-соус",
+      "meta": "8 шт · 260 г",
+      "price": 480,
+      "tag": "Острый"
+    },
+    {
+      "id": "baked-eel",
+      "category": "baked",
+      "image": "sushi/baked-eel.webp",
+      "name": "Запечённый с угрём",
+      "description": "Угорь, сливочный сыр, унаги",
+      "meta": "8 шт · 270 г",
+      "price": 560,
+      "tag": ""
+    },
+    {
+      "id": "nigiri-salmon",
+      "category": "sushi",
+      "image": "sushi/nigiri-salmon.webp",
+      "name": "Нигири с лососем",
+      "description": "Охлаждённый лосось на рисе",
+      "meta": "2 шт · 70 г",
+      "price": 220,
+      "tag": ""
+    },
+    {
+      "id": "nigiri-tuna",
+      "category": "sushi",
+      "image": "sushi/nigiri-tuna.webp",
+      "name": "Нигири с тунцом",
+      "description": "Тунец на рисе",
+      "meta": "2 шт · 70 г",
+      "price": 260,
+      "tag": ""
+    },
+    {
+      "id": "gunkan",
+      "category": "sushi",
+      "image": "sushi/gunkan.webp",
+      "name": "Гункан с икрой",
+      "description": "Икра лосося в нори",
+      "meta": "2 шт · 80 г",
+      "price": 280,
+      "tag": ""
+    },
+    {
+      "id": "set-andryusha",
+      "category": "sets",
+      "image": "sushi/set-small.webp",
+      "name": "Сет «Для Андрюши»",
+      "description": "Филадельфия, Калифорния, маки с лососем",
+      "meta": "22 шт · 640 г",
+      "price": 1290,
+      "tag": "Выгодно"
+    },
+    {
+      "id": "set-party",
+      "category": "sets",
+      "image": "sushi/set-big.webp",
+      "name": "Сет «Большая компания»",
+      "description": "5 роллов и 6 нигири на всю компанию",
+      "meta": "48 шт · 1 500 г",
+      "price": 3290,
+      "tag": ""
+    }
+  ],
+  "delivery": {
+    "eyebrow": "Доставка",
+    "title": "Привезём за 45 минут",
+    "intro": "Не успели — следующий ролл за наш счёт. Это не маркетинг: мы просто не держим заказы в очереди.",
+    "freeFrom": 1500,
+    "fee": 199,
+    "minutes": 45,
+    "facts": [
+      {
+        "title": "Бесплатно от 1 500 ₽",
+        "text": "Если меньше — доставка 199 ₽."
+      },
+      {
+        "title": "Курьер позвонит заранее",
+        "text": "За 10 минут до приезда, чтобы вы успели накрыть на стол."
+      },
+      {
+        "title": "Картой или наличными",
+        "text": "Курьер привезёт терминал, сдачу тоже найдём."
+      },
+      {
+        "title": "Палочки и имбирь в подарок",
+        "text": "Соевый соус, имбирь и васаби — к каждому заказу."
+      }
+    ]
+  },
+  "reviewsSection": {
+    "eyebrow": "Отзывы",
+    "title": "Андрюша и другие довольные гости",
+    "items": [
+      {
+        "name": "Андрюша, 7 лет",
+        "text": "Папа заказал себе «Филадельфию», а съел её я. Теперь это мои суши."
+      },
+      {
+        "name": "Андрей, разработчик",
+        "text": "Суши не люблю, но заказал ради эксперимента. Гипотеза: вдруг понравятся? Итог: сет съеден, нужны повторные тесты."
+      },
+      {
+        "name": "Andrew",
+        "text": "Came for the name, stayed for the salmon. Fresh rolls, quick delivery — my Friday night plans are sorted."
+      }
+    ]
+  },
+  "promo": {
+    "show": true,
+    "eyebrow": "Бонус за имя",
+    "title": "Андреям скидка 5%",
+    "text": "Андрей, Андрюша или Andrew — для вас суши ещё приятнее.",
+    "button": "Выбрать суши",
+    "badge": "−5%"
+  }
+}

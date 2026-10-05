@@ -10,7 +10,7 @@ import { Hero } from './components/Hero'
 import { Menu } from './components/Menu'
 import { Reviews } from './components/Reviews'
 import { SushiArt } from './components/Sushi'
-import { menu } from './data'
+import { content } from './content'
 import { cartTotals, withQty } from './lib/cart'
 import type { Cart } from './lib/cart'
 import { motionTokens } from './lib/motion'
@@ -69,7 +69,7 @@ export default function App() {
 
       <AnimatePresence>
         {flights.map((flight) => {
-          const kind = menu.find((item) => item.id === flight.id)?.kind ?? 'maki-salmon'
+          const image = content.dishes.find((item) => item.id === flight.id)?.image
           const peak = Math.min(flight.from.y, flight.to.y) - 120
           return (
             <motion.div
@@ -84,7 +84,7 @@ export default function App() {
               transition={{ duration: motionTokens.duration.slow * 1.4, ease: motionTokens.easing.smooth, times: [0, 0.45, 1] }}
               onAnimationComplete={() => land(flight)}
             >
-              <SushiArt kind={kind} className="size-28 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-xl" />
+              <SushiArt src={image} className="size-28 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-xl" />
             </motion.div>
           )
         })}

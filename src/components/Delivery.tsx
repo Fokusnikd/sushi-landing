@@ -1,10 +1,11 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { deliveryFacts } from '../data'
+import { content } from '../content'
 import { motionTokens } from '../lib/motion'
 import { Icon } from './Icon'
 import { Container, Reveal, SectionHeading } from './ui'
 
 export function Delivery() {
+  const { eyebrow, title, intro, facts } = content.delivery
   return (
     <section id="delivery" className="overflow-hidden bg-nori py-16 text-rice lg:py-24" aria-labelledby="delivery-title">
       <Container className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
@@ -12,13 +13,13 @@ export function Delivery() {
           <SectionHeading
             light
             id="delivery-title"
-            eyebrow="Доставка"
-            title="Привезём за 45 минут"
-            intro="Не успели — следующий ролл за наш счёт. Это не маркетинг: мы просто не держим заказы в очереди."
+            eyebrow={eyebrow}
+            title={title}
+            intro={intro}
           />
           <ul className="mt-10 grid gap-6 sm:grid-cols-2">
-            {deliveryFacts.map((fact, index) => (
-              <li key={fact.title}>
+            {facts.map((fact, index) => (
+              <li key={index}>
                 <Reveal delay={index * motionTokens.stagger}>
                   <span className="grid size-10 place-items-center rounded-full bg-salmon text-nori">
                     <Icon name="check" className="size-5" />
@@ -39,8 +40,9 @@ export function Delivery() {
   )
 }
 
-// 45 minutes drawn as three quarters of a clock face
+// Delivery time drawn as a share of a clock face: 45 minutes are three quarters
 function ClockRing() {
+  const { minutes } = content.delivery
   return (
     <div className="relative mx-auto grid size-64 place-items-center sm:size-72">
       <svg viewBox="0 0 200 200" className="absolute inset-0 size-full -rotate-90" aria-hidden="true">
@@ -54,13 +56,13 @@ function ClockRing() {
           strokeWidth="16"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 0.75 }}
+          whileInView={{ pathLength: Math.min(1, minutes / 60) }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: motionTokens.duration.crawl * 1.4, ease: motionTokens.easing.smooth }}
         />
       </svg>
       <p className="text-center">
-        <span className="block font-display text-7xl font-extrabold leading-none">45</span>
+        <span className="block font-display text-7xl font-extrabold leading-none">{minutes}</span>
         <span className="mt-1 block font-bold text-rice/70">минут</span>
       </p>
     </div>

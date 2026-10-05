@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useId, useRef, useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
-import { cartLines, cartTotals, FREE_DELIVERY_FROM } from '../lib/cart'
+import { content } from '../content'
+import { cartLines, cartTotals } from '../lib/cart'
 import type { Cart } from '../lib/cart'
 import { motionTokens, springs } from '../lib/motion'
 import { Icon } from './Icon'
@@ -178,7 +179,7 @@ export function CartDrawer({ open, cart, onClose, onQty, onClear }: Props) {
                         className="flex items-center gap-3 rounded-2xl bg-white p-3"
                       >
                         <span className="grid size-16 shrink-0 place-items-center rounded-xl bg-rice-deep">
-                          <SushiArt kind={item.kind} className="size-14" />
+                          <SushiArt src={item.image} className="size-14" />
                         </span>
                         <span className="min-w-0 flex-1">
                           <span className="block truncate font-bold">{item.name}</span>
@@ -217,7 +218,7 @@ export function CartDrawer({ open, cart, onClose, onQty, onClear }: Props) {
                     <motion.div
                       className="h-full origin-left rounded-full bg-wasabi"
                       initial={false}
-                      animate={{ scaleX: Math.min(1, totals.subtotal / FREE_DELIVERY_FROM) }}
+                      animate={{ scaleX: Math.min(1, totals.subtotal / content.delivery.freeFrom) }}
                       transition={springs.snappy}
                     />
                   </div>

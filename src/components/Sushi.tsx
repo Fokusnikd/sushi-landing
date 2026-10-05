@@ -13,7 +13,7 @@ export type SushiKind =
   | 'set-small'
   | 'set-big'
 
-// Generated food photographs, exported as 720px WebP with warm cream backgrounds.
+// Food photographs, 720px WebP on a warm cream background.
 export function SushiArt({ kind, className = 'size-24' }: { kind: SushiKind; className?: string }) {
   return (
     <img
